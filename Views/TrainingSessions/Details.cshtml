@@ -1,0 +1,10 @@
+﻿@model Projekt_befit.Models.TrainingSession
+
+<h1>Szczegóły sesji</h1>
+<hr />
+
+<p><b>Początek:</b> @Model.StartTime</p>
+<p><b>Koniec:</b> @Model.EndTime</p>
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edytuj</a>
+<a asp-action="Index" class="btn btn-secondary">Powrót</a>

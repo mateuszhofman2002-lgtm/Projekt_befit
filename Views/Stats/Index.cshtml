@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Projekt_befit.Models.ExerciseStatsViewModel>
+
+<h2>Statystyki ćwiczeń z ostatnich 4 tygodni</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Typ ćwiczenia</th>
+            <th>Liczba sesji</th>
+            <th>Łączna liczba powtórzeń</th>
+            <th>Średnie obciążenie (kg)</th>
+            <th>Maksymalne obciążenie (kg)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var stat in Model)
+        {
+            <tr>
+                <td>@stat.ExerciseName</td>
+                <td>@stat.SessionsCount</td>
+                <td>@stat.TotalReps</td>
+                <td>@stat.AverageWeight</td>
+                <td>@stat.MaxWeight</td>
+            </tr>
+        }
+    </tbody>
+</table>

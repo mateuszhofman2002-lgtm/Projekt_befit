@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Projekt_befit.Models.ExerciseList>
+
+@{
+    ViewData["Title"] = "Lista ćwiczeń";
+}
+
+<h1>Twoje ćwiczenia</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Dodaj ćwiczenie</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ćwiczenie</th>
+            <th>Sesja</th>
+            <th>Obciążenie (kg)</th>
+            <th>Serie</th>
+            <th>Powtórzenia</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ExerciseName?.Name</td>
+                <td>@item.TrainingSession?.StartTime.ToString("g")</td>
+                <td>@item.Weight</td>
+                <td>@item.Sets</td>
+                <td>@item.RepsPerSet</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">Szczegóły</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Edytuj</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

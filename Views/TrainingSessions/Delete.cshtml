@@ -1,0 +1,15 @@
+﻿@model Projekt_befit.Models.TrainingSession
+
+<h1>Usuń sesję</h1>
+<hr />
+
+<p>Czy na pewno chcesz usunąć tę sesję?</p>
+
+<p><b>Start:</b> @Model.StartTime</p>
+<p><b>Koniec:</b> @Model.EndTime</p>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Usuń</button>
+    <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+</form>

@@ -1,0 +1,34 @@
+﻿@model Projekt_befit.Models.ExerciseList
+
+@{
+    ViewData["Title"] = "Usuń ćwiczenie";
+}
+
+<h1>Usuń ćwiczenie</h1>
+<hr />
+
+<p>Czy na pewno chcesz usunąć to ćwiczenie?</p>
+
+<dl class="row">
+    <dt class="col-sm-3">Ćwiczenie</dt>
+    <dd class="col-sm-9">@Model.ExerciseName?.Name</dd>
+
+    <dt class="col-sm-3">Sesja</dt>
+    <dd class="col-sm-9">@Model.TrainingSession?.StartTime.ToString("g")</dd>
+
+    <dt class="col-sm-3">Obciążenie (kg)</dt>
+    <dd class="col-sm-9">@Model.Weight</dd>
+
+    <dt class="col-sm-3">Liczba serii</dt>
+    <dd class="col-sm-9">@Model.Sets</dd>
+
+    <dt class="col-sm-3">Powtórzenia</dt>
+    <dd class="col-sm-9">@Model.RepsPerSet</dd>
+</dl>
+
+<form asp-action="Delete" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Usuń</button>
+    <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+</form>

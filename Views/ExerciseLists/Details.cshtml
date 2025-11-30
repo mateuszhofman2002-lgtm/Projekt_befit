@@ -1,0 +1,28 @@
+﻿@model Projekt_befit.Models.ExerciseList
+
+@{
+    ViewData["Title"] = "Szczegóły ćwiczenia";
+}
+
+<h1>Szczegóły ćwiczenia</h1>
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-3">Ćwiczenie</dt>
+    <dd class="col-sm-9">@Model.ExerciseName?.Name</dd>
+
+    <dt class="col-sm-3">Sesja</dt>
+    <dd class="col-sm-9">@Model.TrainingSession?.StartTime.ToString("g")</dd>
+
+    <dt class="col-sm-3">Obciążenie (kg)</dt>
+    <dd class="col-sm-9">@Model.Weight</dd>
+
+    <dt class="col-sm-3">Liczba serii</dt>
+    <dd class="col-sm-9">@Model.Sets</dd>
+
+    <dt class="col-sm-3">Powtórzenia</dt>
+    <dd class="col-sm-9">@Model.RepsPerSet</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edytuj</a>
+<a asp-action="Index" class="btn btn-secondary">Powrót</a>

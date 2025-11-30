@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Projekt_befit.Models.TrainingSession>
+
+<h1>Twoje sesje treningowe</h1>
+<hr />
+
+<a asp-action="Create" class="btn btn-success mb-3">Nowa sesja</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Start</th>
+            <th>Koniec</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in Model)
+        {
+            <tr>
+                <td>@t.StartTime</td>
+                <td>@t.EndTime</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@t.Id" class="btn btn-info btn-sm">Szczegóły</a>
+                    <a asp-action="Edit" asp-route-id="@t.Id" class="btn btn-warning btn-sm">Edytuj</a>
+                    <a asp-action="Delete" asp-route-id="@t.Id" class="btn btn-danger btn-sm">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
